@@ -15,12 +15,12 @@ export class DepartmentService {
   deleteDepartment(id: number){
     return this.http.delete(this.APIUrl+'/Departments/'+id);
   }
+  updateDepartment(dep:Departments){
+    return this.http.put(this.APIUrl+'/Departments/'+dep.departmentsID,dep);
+  }
   addDepartments(dep:Departments){
     console.log(dep);
     return this.http.post(this.APIUrl+'/Departments',dep);
-  }
-  updateDepartment(dep:Departments) {
-    return this.http.put(this.APIUrl+'/Departments',dep);
   }
   private _listners = new Subject<any>();
   listen(): Observable<any>{

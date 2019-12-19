@@ -45,6 +45,6 @@ import {MatTableModule,MatIconModule, MatButtonModule} from '@angular/material';
   ],
   providers: [DepartmentService,EmployeeService],
   bootstrap: [AppComponent],
-  entryComponents:[AddDepComponent]
+  entryComponents:[AddDepComponent,EditDepComponent]
 })
 export class AppModule { }

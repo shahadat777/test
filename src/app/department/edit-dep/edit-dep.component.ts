@@ -16,5 +16,16 @@ export class EditDepComponent implements OnInit {
 
   ngOnInit() {
   }
- 
+  onClose(){
+    this.dialogbox.close();
+    this.service.filter('Register click');
+  }
+  onSubmit(form:NgForm){
+    this.service.updateDepartment(form.value).subscribe(res=>{
+      this.snackBar.open('update successfully','',{
+        duration:5000,
+        verticalPosition:'top'
+      })
+    })
+  }
 }

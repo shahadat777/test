@@ -41,7 +41,12 @@ export class ShowDepComponent implements OnInit {
   }
   onEdit(dep:Departments){
     console.log(dep);
-
+    this.service.formData = dep;
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus= true;
+    dialogConfig.width= "70%";
+    this.dialog.open(EditDepComponent, dialogConfig);
   }
   onDelete(id:number){
     console.log(id);
