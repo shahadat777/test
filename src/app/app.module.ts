@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {FormsModule} from '@angular/forms';
-import {MatDialogModule} from '@angular/material';
+import {MatDialogModule, MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,14 +18,24 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTableModule,MatIconModule, MatButtonModule} from '@angular/material';
+import { ShowEmpComponent } from './employee/show-emp/show-emp.component';
+import { AddEmpComponent } from './employee/add-emp/add-emp.component';
+import { EditEmpComponent } from './employee/edit-emp/edit-emp.component';
+import { MatConfirmDialogComponent } from './mat-confirm-dialog/mat-confirm-dialog.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
     DepartmentComponent,
-    AddDepComponent,
-    EditDepComponent,
     ShowDepComponent,
-    EmployeeComponent
+    EditDepComponent,
+    AddDepComponent,
+    ShowEmpComponent,
+    EmployeeComponent,
+    AddEmpComponent,
+    EditEmpComponent,
+    MatConfirmDialogComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -40,11 +50,14 @@ import {MatTableModule,MatIconModule, MatButtonModule} from '@angular/material';
     MatInputModule,
     MatDialogModule,
     FormsModule,
-    MatSnackBarModule
-  
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatPaginatorModule
   ],
   providers: [DepartmentService,EmployeeService],
   bootstrap: [AppComponent],
-  entryComponents:[AddDepComponent,EditDepComponent]
+  entryComponents:[AddDepComponent,EditDepComponent,AddEmpComponent,EditEmpComponent,
+    MatConfirmDialogComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Employee } from '../Models/employee-model';
 import { Observable, Subject } from 'rxjs';
+import { Departments } from '../Models/department-model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +13,20 @@ export class EmployeeService {
   formData:Employee;
   readonly APIUrl="http://localhost:3226/api";
   getEmpList(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(this.APIUrl + '/Departments');
+    return this.http.get<Employee[]>(this.APIUrl + '/Employees');
   }
   deleteEmpartment(id: number){
-    return this.http.delete(this.APIUrl+'/Departments/'+id);
+    return this.http.delete(this.APIUrl+'/Employees/'+id);
   }
   updateEmpartment(emp:Employee){
-    return this.http.put(this.APIUrl+'/Departments/'+emp.EmployeeID,emp);
+    return this.http.put(this.APIUrl+'/Employees/'+emp.employeeID,emp);
+  }
+  getDepDropDownValues():Observable<any>{
+    return this.http.get<Departments[]>(this.APIUrl+'/Departments');
   }
   addEmpartment(emp:Employee){
     console.log(emp);
-    return this.http.post(this.APIUrl+'/Departments',emp);
+    return this.http.post(this.APIUrl+'/Employees',emp);
   }
   private _listners = new Subject<any>();
   listen(): Observable<any>{
